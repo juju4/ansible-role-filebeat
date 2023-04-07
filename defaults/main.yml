@@ -14,6 +14,10 @@ filebeat_inputs:
 filebeat_output_elasticsearch_enabled: false
 filebeat_output_elasticsearch_hosts:
   - "localhost:9200"
+filebeat_output_elasticsearch_ssl_enabled: false
+# https://www.elastic.co/guide/en/beats/filebeat/current/configuration-ssl.html#client-verification-mode
+filebeat_output_elasticsearch_ssl_verification: 'full'
+# filebeat_output_elasticsearch_ssl_verification: 'none'
 
 filebeat_output_elasticsearch_auth: {}
 

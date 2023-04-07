@@ -13,6 +13,9 @@ output:
     # Array of hosts to connect to.
     hosts: {{ filebeat_output_elasticsearch_hosts | to_json }}
 
+    ssl.enabled: {{ filebeat_output_elasticsearch_ssl_enabled | bool }}
+    ssl.verification_mode: {{ filebeat_output_elasticsearch_ssl_verification }}
+
     # Optional auth via API Key or username/password.
     # The options are mutually exclusive and api_key takes the precedence.
     {%- if 'api_key' in filebeat_output_elasticsearch_auth +%}
