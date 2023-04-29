@@ -42,3 +42,7 @@ filebeat_elastic_cloud_enabled: false
 filebeat_elastic_cloud_id: ""
 filebeat_elastic_cloud_username: ""
 filebeat_elastic_cloud_password: ""
+
+filebeat_extra_options: ''
+# filebeat_extra_options: |
+#   filebeat.config.modules.path: ${path.config}/modules.d/*.yml

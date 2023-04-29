@@ -166,3 +166,4 @@ cloud.id: {{ filebeat_elastic_cloud_id }}
 # `output.elasticsearch.password` settings. The format is `<user>:<pass>`.
 cloud.auth: {{ filebeat_elastic_cloud_username }}:{{ filebeat_elastic_cloud_password }}
 {% endif %}
+{{ filebeat_extra_options }}
