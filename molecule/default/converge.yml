@@ -1,7 +1,7 @@
 ---
 - name: Converge
   hosts: all
-  become: true
+  #become: true
 
   pre_tasks:
     - name: Update apt cache.
@@ -11,8 +11,11 @@
       when: ansible_os_family == 'Debian'
 
     - name: Install test dependencies (RedHat).
-      ansible.builtin.package:
-        name: which
+      ansible.builtin.dnf:
+        name:
+          - which
+          - curl
+        allowerasing: true
         state: present
       when: ansible_os_family == 'RedHat'
 
