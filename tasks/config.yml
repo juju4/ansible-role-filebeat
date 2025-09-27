@@ -14,9 +14,9 @@
     state: directory
     mode: 0755
   loop:
-    - "{{ filebeat_ssl_certs_dir }}"
-    - "{{ filebeat_ssl_private_dir }}"
-  when: filebeat_ssl_key_file | default(false)
+    - filebeat_ssl_certs_dir
+    - filebeat_ssl_private_dir
+  when: filebeat_ssl_key_file | length > 0
 
 - name: Copy SSL key and cert for filebeat.
   ansible.builtin.copy:
@@ -30,8 +30,8 @@
       file: "{{ filebeat_ssl_certificate_file }}"
   notify: Restart filebeat
   when:
-    - filebeat_ssl_copy_files
-    - filebeat_ssl_key_file | default(false)
-    - filebeat_ssl_certificate_file | default(false)
+    - filebeat_ssl_copy_files | bool
+    - filebeat_ssl_key_file | length > 0
+    - filebeat_ssl_certificate_file | length > 0
 
 # - name: Ensure filebeat can read system's private key
