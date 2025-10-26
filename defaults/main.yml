@@ -43,6 +43,10 @@ filebeat_elastic_cloud_id: ""
 filebeat_elastic_cloud_username: ""
 filebeat_elastic_cloud_password: ""
 
+filebeat_elastic_apt_gpg_key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+filebeat_add_repo: true
+filebeat_apt_ignore_key_error: true
+
 filebeat_extra_options: ''
 # filebeat_extra_options: |
 #   filebeat.config.modules.path: ${path.config}/modules.d/*.yml
